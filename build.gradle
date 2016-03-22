@@ -31,13 +31,12 @@ if (!hasProperty("EGLIBRARY_COMPILE_LOCAL")) {
 }
 
 dependencies {
-    if (EGLIBRARY_COMPILE_LOCAL) {
-        compile project(':eglibrary:simple-logger')
-    } else {
-        compile 'com.eaglesakura:simple-logger:1.+'
-    }
-    compile 'com.fasterxml.jackson.core:jackson-core:+'
-    compile 'com.fasterxml.jackson.core:jackson-databind:+'
+//    compile 'com.fasterxml.jackson.core:jackson-core:+'
+//    compile 'com.fasterxml.jackson.core:jackson-databind:+'
+    compile "com.google.code.gson:gson:2.6.+"
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'commons-codec:commons-codec:1.+'
 }
 
 apply plugin: 'maven'
@@ -79,16 +78,9 @@ uploadArchives {
         }
         dependencies {
             dependency {
-                groupId = 'com.fasterxml.jackson.core'
-                artifactId = 'jackson-core'
-                version = '2.4.6'
-                scope = 'compile'
-            }
-
-            dependency {
-                groupId = 'com.fasterxml.jackson.core'
-                artifactId = 'jackson-databind'
-                version = '2.4.6'
+                groupId = 'com.google.code.gson'
+                artifactId = 'gson'
+                version = '2.6.+'
                 scope = 'compile'
             }
         }
