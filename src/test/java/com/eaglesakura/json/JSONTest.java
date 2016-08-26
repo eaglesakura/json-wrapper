@@ -27,6 +27,14 @@ public class JSONTest {
     }
 
     @Test
+    public void JSON経由してのコピーが行える() throws Exception {
+        SimpleDecodeModel encodeModel = new SimpleDecodeModel();
+        SimpleDecodeModel decodeModel = JSON.copyFrom(encodeModel);
+
+        assertEquals(decodeModel, encodeModel);
+    }
+
+    @Test
     public void POJOにないフィールドに対して例外を投げない() throws Exception {
         InputStream is = new FileInputStream(new File("src/test/assets/test01.json"));
         SimpleDecodeModel model = JSON.decode(is, SimpleDecodeModel.class);

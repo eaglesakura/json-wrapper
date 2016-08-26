@@ -11,7 +11,7 @@ import java.io.OutputStream;
 
 public class JSON {
 
-    static final JsonImpl sImpl;
+    static JsonImpl sImpl;
 
     static {
         // Jackson Impl
@@ -97,6 +97,26 @@ public class JSON {
         } catch (Throwable e) {
             return null;
         }
+    }
+
+    /**
+     * JSONを経由してデータコピーを行う。
+     *
+     * @param obj POJOモデル
+     */
+    public static <T> T copyFrom(T obj) {
+        try {
+            return decode(encode(obj), (Class<? extends T>) obj.getClass());
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    /**
+     * 実装を切り替える
+     */
+    public static void setImpl(JsonImpl impl) {
+        sImpl = impl;
     }
 
     public interface JsonImpl {
