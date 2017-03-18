@@ -31,12 +31,10 @@ if (!hasProperty("EGLIBRARY_COMPILE_LOCAL")) {
 }
 
 dependencies {
-//    compile 'com.fasterxml.jackson.core:jackson-core:+'
-//    compile 'com.fasterxml.jackson.core:jackson-databind:+'
-    compile "com.google.code.gson:gson:2.6.+"
+    compile "com.google.code.gson:gson:2.6.2"
 
     testCompile 'junit:junit:4.12'
-    testCompile 'commons-codec:commons-codec:1.+'
+    testCompile 'commons-codec:commons-codec:1.10'
 }
 
 apply plugin: 'maven'
@@ -62,27 +60,6 @@ uploadArchives {
             pom.version = ARTIFACT_VERSION + getArtifactVersionSuffix()
             pom.groupId = "com.eaglesakura"
             pom.artifactId = ARTIFACT_NAME
-        }
-    }
-}
-
-[uploadArchives.repositories.mavenDeployer]*.pom*.whenConfigured { pom ->
-    pom.project {
-        inceptionYear '2016'
-        packaging 'jar'
-        licenses {
-            license {
-                name 'MIT License'
-                url "https://raw.githubusercontent.com/eaglesakura/${ARTIFACT_NAME}/master/LICENSE.txt"
-            }
-        }
-        dependencies {
-            dependency {
-                groupId = 'com.google.code.gson'
-                artifactId = 'gson'
-                version = '2.6.+'
-                scope = 'compile'
-            }
         }
     }
 }
