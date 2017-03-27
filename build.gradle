@@ -21,7 +21,6 @@ buildscript {
 }
 
 repositories {
-    maven { url "https://dl.bintray.com/eaglesakura/maven/" }
     mavenCentral()
 }
 
