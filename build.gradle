@@ -3,7 +3,7 @@
  * 1.0.x  : Circle CIに移行
  * 1.1.x  : bintrayに移行
  */
-def ARTIFACT_VERSION = "1.0"
+def ARTIFACT_VERSION = "1.1"
 def REPOSITORY_NAME = "maven"
 def BINTRAY_LICENSES = ["MIT"]
 def BINTRAY_LABELS = ["android"]
@@ -21,7 +21,7 @@ buildscript {
 }
 
 repositories {
-    maven { url "http://eaglesakura.github.io/maven/" }
+    maven { url "https://dl.bintray.com/eaglesakura/maven/" }
     mavenCentral()
 }
 
