@@ -33,12 +33,6 @@ targetCompatibility = 1.7
 group = "com.eaglesakura"
 version = ARTIFACT_VERSION + getArtifactVersionSuffix()
 
-
-// Local or maven
-if (!hasProperty("EGLIBRARY_COMPILE_LOCAL")) {
-    ext.EGLIBRARY_COMPILE_LOCAL = false
-}
-
 dependencies {
     compile "com.google.code.gson:gson:2.6.2"
 
